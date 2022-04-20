@@ -39,7 +39,7 @@ class MainActivity : ComponentActivity() {
                         SettingBooleanItem(
                             state = rememberBooleanPreference(key = "test", defaultValue = true),
                             title = {
-                                Text("移动通信")
+                                Text("Mobile")
                             },
                             icon = {
                                 Icon(Icons.Outlined.Call, null)
@@ -48,7 +48,7 @@ class MainActivity : ComponentActivity() {
                         SettingBooleanItem(
                             state = rememberBooleanPreference(key = "test2", defaultValue = true),
                             title = {
-                                Text("互联网")
+                                Text("Network")
                             },
                             text = {
                                 Text("This is the description")
@@ -72,15 +72,23 @@ class MainActivity : ComponentActivity() {
                                 "Xiaomi", "Google", "Oppo"
                             )
                         )
-                        SettingBooleanItem(
-                            state = rememberBooleanPreference(key = "test4", defaultValue = true),
-                            title = {
-                                Text("Menu Title")
-                            },
-                            text = {
-                                Text("This is the description")
-                            }
-                        )
+
+                        Divider()
+
+                        SettingItemCategory(title = { Text(text = "Compose Yes") }) {
+                            SettingBooleanItem(
+                                state = rememberBooleanPreference(
+                                    key = "test4",
+                                    defaultValue = true
+                                ),
+                                title = {
+                                    Text("Menu Title")
+                                },
+                                text = {
+                                    Text("This is the description")
+                                }
+                            )
+                        }
                     }
                 }
             }
