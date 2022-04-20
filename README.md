@@ -59,3 +59,29 @@ SettingBooleanItem(
 )
 ```
 ![](art/boolean_component.png)
+
+### SettingStringItem
+This component is used to display a setting item with a string value
+
+```kotlin
+val stringPref = rememberStringPreference(
+    key = "string_preference",
+    defaultValue = "default"
+)
+SettingStringItem(
+    state = stringPref,
+    title = {
+        Text("Set Phone Brand")
+    },
+    text = {
+        Text("Select your phone brand")
+    },
+    icon = {
+        Icon(Icons.Outlined.Phone, null)
+    },
+    stateRange = setOf(
+        "Xiaomi", "Google", "Oppo"
+    )
+)
+```
+![](art/string_component.png)
