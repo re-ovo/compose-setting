@@ -1,6 +1,9 @@
 # ComposeSetting
 This is a basic Compose setting library that provides a basic [Material3](https://m3.material.io) setting components
 
+## Screenshot
+![](art/screenshot.png)
+
 ## Import to your project
 1. Import jitpack to your repository
 ```groovy
