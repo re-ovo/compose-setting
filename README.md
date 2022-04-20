@@ -31,3 +31,30 @@ Other types of preference can be used as well, such as
 * `rememberDoublePreference`
 * `rememberStringPreference`
 * `rememberStringSetPreference`
+
+Note: The preference was based on DataStore API
+
+## Setting Components
+This library provides several out-of-the-box setting item components
+
+### SettingBooleanItem
+This component is used to display a setting item with a boolean value
+
+```kotlin
+    val booleanPref = rememberBooleanPreference(
+        key = "boolean_preference",
+        defaultValue = false
+    )
+    SettingBooleanItem(
+        state = booleanPref,
+        title = {
+            Text("Network")
+        },
+        text = {
+            Text("This is the description")
+        },
+        icon = {
+            Icon(Icons.Outlined.Notifications, null)
+        }
+    )
+```
