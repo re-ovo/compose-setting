@@ -85,3 +85,37 @@ SettingStringItem(
 )
 ```
 ![](art/string_component.png)
+
+### SettingLinkItem
+This component is used to display a basic setting item
+
+```kotlin
+SettingLinkItem(
+    title = {
+        Text("Network")
+    },
+    text = {
+        Text("This is the description")
+    },
+    icon = {
+        Icon(Icons.Outlined.Notifications, null)
+    },
+    onClick = {
+        // do something by yourself
+    }
+)
+```
+
+### SettingItemCategory
+This component is used to display a category of setting items
+
+```kotlin
+ SettingItemCategory(
+    title = {
+        Text(text = "Compose Yes")
+    }
+) {
+    // Your Menu Items Here
+}
+```
+![](art/category.png)

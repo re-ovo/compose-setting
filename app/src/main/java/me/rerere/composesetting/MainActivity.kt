@@ -81,7 +81,11 @@ class MainActivity : ComponentActivity() {
 
                         Divider()
 
-                        SettingItemCategory(title = { Text(text = "Compose Yes") }) {
+                        SettingItemCategory(
+                            title = {
+                                Text(text = "Compose Yes")
+                            }
+                        ) {
                             SettingBooleanItem(
                                 state = rememberBooleanPreference(
                                     key = "test4",
