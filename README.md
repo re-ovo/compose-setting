@@ -16,3 +16,18 @@ This is a basic Compose setting library that provides a basic [Material3](https:
 ```
 
 ## Remember Preference
+Before using settings, please let me introduce a `rememberXXXPreference` function, which can **persist** remember a certain value in Compose
+
+```kotlin
+  val booleanPreference by rememberBooleanPreference(
+    key = "boolean_preference",
+    defaultValue = false
+  )
+```
+
+Other types of preference can be used as well, such as
+* `rememberStringPreference`
+* `rememberIntPreference`
+* `rememberDoublePreference`
+* `rememberStringPreference`
+* `rememberStringSetPreference`
