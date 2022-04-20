@@ -20,7 +20,7 @@ repositories {
 ```
 2. Import the library
 ```groovy
-implementation 'TODO'
+implementation 'com.github.re-ovo:compose-setting:1.0.0'
 ```
 
 ## Remember Preference
