@@ -1,4 +1,9 @@
 # ComposeSetting
+![](https://img.shields.io/github/issues/re-ovo/compose-setting?style=flat-square)
+![](https://img.shields.io/github/forks/re-ovo/compose-setting?style=flat-square)
+![](https://img.shields.io/github/stars/re-ovo/compose-setting?style=flat-square)
+![](https://img.shields.io/github/pulls/re-ovo/compose-setting?style=flat-square)
+
 This is a basic Compose setting library that provides a basic [Material3](https://m3.material.io) setting components
 
 ## Screenshot
