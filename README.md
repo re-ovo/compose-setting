@@ -4,25 +4,25 @@ This is a basic Compose setting library that provides a basic [Material3](https:
 ## Import to your project
 1. Import jitpack to your repository
 ```groovy
-    repositories {
-        maven {
-            url 'https://jitpack.io'
-        }
+repositories {
+    maven {
+        url 'https://jitpack.io'
     }
+}
 ```
 2. Import the library
 ```groovy
-    implementation 'TODO'
+implementation 'TODO'
 ```
 
 ## Remember Preference
 Before using settings, please let me introduce a `rememberXXXPreference` function, which can **persist** remember a certain value in Compose
 
 ```kotlin
-  val booleanPreference by rememberBooleanPreference(
-    key = "boolean_preference",
-    defaultValue = false
-  )
+val booleanPreference by rememberBooleanPreference(
+key = "boolean_preference",
+defaultValue = false
+)
 ```
 
 Other types of preference can be used as well, such as
@@ -41,20 +41,21 @@ This library provides several out-of-the-box setting item components
 This component is used to display a setting item with a boolean value
 
 ```kotlin
-    val booleanPref = rememberBooleanPreference(
-        key = "boolean_preference",
-        defaultValue = false
-    )
-    SettingBooleanItem(
-        state = booleanPref,
-        title = {
-            Text("Network")
-        },
-        text = {
-            Text("This is the description")
-        },
-        icon = {
-            Icon(Icons.Outlined.Notifications, null)
-        }
-    )
+val booleanPref = rememberBooleanPreference(
+    key = "boolean_preference",
+    defaultValue = false
+)
+SettingBooleanItem(
+    state = booleanPref,
+    title = {
+        Text("Network")
+    },
+    text = {
+        Text("This is the description")
+    },
+    icon = {
+        Icon(Icons.Outlined.Notifications, null)
+    }
+)
 ```
+![](art/boolean_component.png)
