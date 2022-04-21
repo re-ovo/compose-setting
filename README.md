@@ -1,4 +1,5 @@
 # ComposeSetting
+![](https://jitpack.io/v/re-ovo/compose-setting.svg?style=flat-square)
 ![](https://img.shields.io/github/issues/re-ovo/compose-setting?style=flat-square)
 ![](https://img.shields.io/github/forks/re-ovo/compose-setting?style=flat-square)
 ![](https://img.shields.io/github/stars/re-ovo/compose-setting?style=flat-square)
@@ -18,9 +19,9 @@ repositories {
     }
 }
 ```
-2. Import the library
+2. Import the library ![](https://jitpack.io/v/re-ovo/compose-setting.svg?style=flat-square)
 ```groovy
-implementation 'com.github.re-ovo:compose-setting:1.0.0'
+implementation 'com.github.re-ovo:compose-setting:<latest-version>'
 ```
 
 ## Remember Preference
