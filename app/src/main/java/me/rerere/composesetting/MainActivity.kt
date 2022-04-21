@@ -3,10 +3,7 @@ package me.rerere.composesetting
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.*
@@ -39,45 +36,58 @@ class MainActivity : ComponentActivity() {
                         )
                     }
                 ) {
-                    SettingItemCategory(
-                        title = { Text("Category Title") }
+                    Column(
+                        modifier = Modifier.padding(it)
                     ) {
-                        SettingBooleanItem(
-                            state = rememberBooleanPreference(key = "test", defaultValue = true),
-                            title = {
-                                Text("Mobile")
-                            },
-                            icon = {
-                                Icon(Icons.Outlined.Call, null)
-                            }
-                        )
-                        SettingBooleanItem(
-                            state = rememberBooleanPreference(key = "test2", defaultValue = true),
-                            title = {
-                                Text("Network")
-                            },
-                            text = {
-                                Text("This is the description")
-                            },
-                            icon = {
-                                Icon(Icons.Outlined.Notifications, null)
-                            }
-                        )
-                        SettingStringItem(
-                            state = rememberStringPreference(key = "test3", defaultValue = "XiaoMi"),
-                            title = {
-                                Text("Set Phone Brand")
-                            },
-                            text = {
-                                Text("Select your phone brand")
-                            },
-                            icon = {
-                                Icon(Icons.Outlined.Phone, null)
-                            },
-                            stateRange = setOf(
-                                "Xiaomi", "Google", "Oppo"
+                        SettingItemCategory(
+                            title = { Text("Category Title") }
+                        ) {
+                            SettingBooleanItem(
+                                state = rememberBooleanPreference(
+                                    key = "test",
+                                    defaultValue = true
+                                ),
+                                title = {
+                                    Text("Mobile")
+                                },
+                                icon = {
+                                    Icon(Icons.Outlined.Call, null)
+                                }
                             )
-                        )
+                            SettingBooleanItem(
+                                state = rememberBooleanPreference(
+                                    key = "test2",
+                                    defaultValue = true
+                                ),
+                                title = {
+                                    Text("Network")
+                                },
+                                text = {
+                                    Text("This is the description")
+                                },
+                                icon = {
+                                    Icon(Icons.Outlined.Notifications, null)
+                                }
+                            )
+                            SettingStringItem(
+                                state = rememberStringPreference(
+                                    key = "test3",
+                                    defaultValue = "XiaoMi"
+                                ),
+                                title = {
+                                    Text("Set Phone Brand")
+                                },
+                                text = {
+                                    Text("Select your phone brand")
+                                },
+                                icon = {
+                                    Icon(Icons.Outlined.Phone, null)
+                                },
+                                stateRange = setOf(
+                                    "Xiaomi", "Google", "Oppo"
+                                )
+                            )
+                        }
 
                         Divider()
 
