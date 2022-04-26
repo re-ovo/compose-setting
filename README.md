@@ -9,6 +9,12 @@ This is a basic Compose setting library that provides a basic [Material3](https:
 It also provides a persistent state system based on [MMKV](https://github.com/Tencent/MMKV). 
 Compared with SharedPreference/DataStore, it can **support synchronous reading without loss of performance**
 
+## Features
+* Remember Preference
+* Material3 Setting Component
+* High Performance
+* Support Synchronous Reading/Writing
+
 ## Screenshot
 ![](art/screenshot.png)
 
