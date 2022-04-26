@@ -6,6 +6,8 @@
 ![](https://img.shields.io/github/pulls/re-ovo/compose-setting?style=flat-square)
 
 This is a basic Compose setting library that provides a basic [Material3](https://m3.material.io) setting components
+It also provides a persistent state system based on [MMKV](https://github.com/Tencent/MMKV). 
+Compared with SharedPreference/DataStore, it can support synchronous reading without loss of performance
 
 ## Screenshot
 ![](art/screenshot.png)
@@ -25,6 +27,12 @@ implementation 'com.github.re-ovo:compose-setting:<latest-version>'
 ```
 
 ## Remember Preference
+You should initialize the MMKV before using it.
+```kotlin
+// Call this function in your Application.onCreate()
+initComposeSetting()
+```
+
 Before using settings, please let me introduce a `rememberXXXPreference` function, which can **persist** remember a certain value in Compose
 
 ```kotlin
@@ -37,6 +45,8 @@ defaultValue = false
 Other types of preference can be used as well, such as
 * `rememberStringPreference`
 * `rememberIntPreference`
+* `rememberLongPreference`
+* `rememberFloatPreference`
 * `rememberDoublePreference`
 * `rememberStringPreference`
 * `rememberStringSetPreference`

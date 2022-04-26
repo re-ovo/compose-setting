@@ -14,6 +14,7 @@ import me.rerere.compose_setting.components.SettingItemCategory
 
 import me.rerere.compose_setting.components.types.SettingBooleanItem
 import me.rerere.compose_setting.components.types.SettingStringItem
+import me.rerere.compose_setting.preference.initComposeSetting
 import me.rerere.compose_setting.preference.rememberBooleanPreference
 import me.rerere.compose_setting.preference.rememberStringPreference
 import me.rerere.composesetting.ui.theme.ComposesettingTheme
@@ -22,6 +23,7 @@ import me.rerere.composesetting.ui.theme.ComposesettingTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             ComposesettingTheme {
                 Scaffold(
@@ -40,12 +42,31 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.padding(it)
                     ) {
                         SettingItemCategory(
+                            title = { Text("个性化") }
+                        ) {
+                            SettingBooleanItem(
+                                state = rememberBooleanPreference(
+                                    key = "tc_a",
+                                    default = true
+                                ),
+                                title = {
+                                    Text("主题设置")
+                                },
+                                icon = {
+                                    Icon(Icons.Outlined.Call, null)
+                                },
+                                text = {
+                                    Text("自定义APP个性化设置")
+                                }
+                            )
+                        }
+                        SettingItemCategory(
                             title = { Text("Category Title") }
                         ) {
                             SettingBooleanItem(
                                 state = rememberBooleanPreference(
                                     key = "test",
-                                    defaultValue = true
+                                    default = true
                                 ),
                                 title = {
                                     Text("Mobile")
@@ -57,7 +78,7 @@ class MainActivity : ComponentActivity() {
                             SettingBooleanItem(
                                 state = rememberBooleanPreference(
                                     key = "test2",
-                                    defaultValue = true
+                                    default = true
                                 ),
                                 title = {
                                     Text("Network")
@@ -72,7 +93,7 @@ class MainActivity : ComponentActivity() {
                             SettingStringItem(
                                 state = rememberStringPreference(
                                     key = "test3",
-                                    defaultValue = "XiaoMi"
+                                    default = "XiaoMi"
                                 ),
                                 title = {
                                     Text("Set Phone Brand")
@@ -99,7 +120,7 @@ class MainActivity : ComponentActivity() {
                             SettingBooleanItem(
                                 state = rememberBooleanPreference(
                                     key = "test4",
-                                    defaultValue = true
+                                    default = true
                                 ),
                                 title = {
                                     Text("Menu Title")
