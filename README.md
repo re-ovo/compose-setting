@@ -33,12 +33,12 @@ You should initialize the MMKV before using it.
 initComposeSetting()
 ```
 
-Before using settings, please let me introduce a `rememberXXXPreference` function, which can **persist** remember a certain value in Compose
+You can use `rememberXXXPreference` function, which can **persist** remember a certain value in Compose
 
 ```kotlin
 val booleanPreference by rememberBooleanPreference(
 key = "boolean_preference",
-defaultValue = false
+default = false
 )
 ```
 
@@ -52,6 +52,14 @@ Other types of preference can be used as well, such as
 * `rememberStringSetPreference`
 
 Note: The preference was based on DataStore API
+
+If you want to read/write the preference synchronously without Compose context, you can use `mmkvPreference` 
+to do that:
+```kotlin
+mmkvPreference.getBoolean("boolean_preference", false)
+mmkvPreference.putBoolean("boolean_preference", true)
+    ...
+```
 
 ## Setting Components
 This library provides several out-of-the-box setting item components
