@@ -7,7 +7,7 @@
 
 This is a basic Compose setting library that provides a basic [Material3](https://m3.material.io) setting components
 It also provides a persistent state system based on [MMKV](https://github.com/Tencent/MMKV). 
-Compared with SharedPreference/DataStore, it can support synchronous reading without loss of performance
+Compared with SharedPreference/DataStore, it can **support synchronous reading without loss of performance**
 
 ## Screenshot
 ![](art/screenshot.png)
@@ -50,8 +50,6 @@ Other types of preference can be used as well, such as
 * `rememberDoublePreference`
 * `rememberStringPreference`
 * `rememberStringSetPreference`
-
-Note: The preference was based on DataStore API
 
 If you want to read/write the preference synchronously without Compose context, you can use `mmkvPreference` 
 to do that:
