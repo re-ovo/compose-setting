@@ -16,6 +16,7 @@ import me.rerere.compose_setting.components.types.SettingBooleanItem
 import me.rerere.compose_setting.components.types.SettingStringItem
 import me.rerere.compose_setting.preference.initComposeSetting
 import me.rerere.compose_setting.preference.rememberBooleanPreference
+import me.rerere.compose_setting.preference.rememberIntPreference
 import me.rerere.compose_setting.preference.rememberStringPreference
 import me.rerere.composesetting.ui.theme.ComposesettingTheme
 
