@@ -246,7 +246,7 @@ fun rememberStringSetPreference(
     DisposableEffect(Unit) {
         val listener = SharedPreferences.OnSharedPreferenceChangeListener { sharedPreferences, s ->
             if(s == key) {
-                state.value = sharedPreferences.getStringSet(key, default) ?: default
+                state.value = sharedPreferences.getStringSet(key, default) ?: emptySet()
             }
         }
         mmkvPreference.registerOnSharedPreferenceChangeListener(listener)
