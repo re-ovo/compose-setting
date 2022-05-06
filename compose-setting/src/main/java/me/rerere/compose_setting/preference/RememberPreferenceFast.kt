@@ -235,6 +235,7 @@ fun rememberStringPreference(
     }
 }
 
+// It might return the default value if you saved a empty string set
 @Composable
 fun rememberStringSetPreference(
     key: String,

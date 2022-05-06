@@ -99,7 +99,8 @@ val stringPref = rememberStringPreference(
     key = "string_preference",
     defaultValue = "default"
 )
-SettingStringItem(
+// Pick Based
+SettingStringPickerItem(
     state = stringPref,
     title = {
         Text("Set Phone Brand")
@@ -113,6 +114,28 @@ SettingStringItem(
     stateRange = setOf(
         "Xiaomi", "Google", "Oppo"
     )
+)
+// Input Field Based
+SettingStringInputDialogItem(
+    state = stringPref,
+    title = {
+        Text("Set Phone Brand")
+    },
+    icon = {
+        Icon(Icons.Outlined.Phone, null)
+    },
+    validator = { value ->
+        value.length >= 3
+    },
+    invalidMessage = {
+        Text("Invalid Phone Brand")
+    },
+    confirmText = {
+        Text("Confirm")
+    },
+    dismissText = {
+        Text("Dismiss")
+    }
 )
 ```
 ![](art/string_component.png)

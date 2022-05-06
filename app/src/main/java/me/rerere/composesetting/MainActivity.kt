@@ -3,21 +3,22 @@ package me.rerere.composesetting
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.*
+import androidx.compose.material.icons.outlined.Call
+import androidx.compose.material.icons.outlined.Close
+import androidx.compose.material.icons.outlined.Notifications
+import androidx.compose.material.icons.outlined.Phone
 import androidx.compose.material3.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import me.rerere.compose_setting.components.SettingItemCategory
-
 import me.rerere.compose_setting.components.types.SettingBooleanItem
-import me.rerere.compose_setting.components.types.SettingStringItem
-import me.rerere.compose_setting.preference.initComposeSetting
+import me.rerere.compose_setting.components.types.SettingStringInputDialogItem
+import me.rerere.compose_setting.components.types.SettingStringPickerItem
 import me.rerere.compose_setting.preference.rememberBooleanPreference
-import me.rerere.compose_setting.preference.rememberIntPreference
 import me.rerere.compose_setting.preference.rememberStringPreference
+import me.rerere.compose_setting.preference.rememberStringSetPreference
 import me.rerere.composesetting.ui.theme.ComposesettingTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -39,6 +40,13 @@ class MainActivity : ComponentActivity() {
                         )
                     }
                 ) {
+                    val set = rememberStringSetPreference(
+                        key = "stringSet",
+                        default = setOf("awa")
+                    )
+                    //set.value = emptySet()
+                    println("set content = ${set.value.joinToString(",")}")
+
                     Column(
                         modifier = Modifier.padding(it)
                     ) {
@@ -91,10 +99,10 @@ class MainActivity : ComponentActivity() {
                                     Icon(Icons.Outlined.Notifications, null)
                                 }
                             )
-                            SettingStringItem(
+                            SettingStringPickerItem(
                                 state = rememberStringPreference(
                                     key = "test3",
-                                    default = "XiaoMi"
+                                    default = "Xiaomi"
                                 ),
                                 title = {
                                     Text("Set Phone Brand")
@@ -108,6 +116,30 @@ class MainActivity : ComponentActivity() {
                                 stateRange = setOf(
                                     "Xiaomi", "Google", "Oppo"
                                 )
+                            )
+                            SettingStringInputDialogItem(
+                                state = rememberStringPreference(
+                                    key = "test5",
+                                    default = "Xiaomi"
+                                ),
+                                title = {
+                                    Text("Set Phone Brand")
+                                },
+                                icon = {
+                                    Icon(Icons.Outlined.Phone, null)
+                                },
+                                validator = { value ->
+                                    value.length >= 3
+                                },
+                                invalidMessage = {
+                                    Text("坏起来了")
+                                },
+                                confirmText = {
+                                    Text("确定")
+                                },
+                                dismissText = {
+                                    Text("取消")
+                                }
                             )
                         }
 
