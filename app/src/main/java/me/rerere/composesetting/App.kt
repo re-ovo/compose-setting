@@ -10,8 +10,5 @@ class App : Application() {
         super.onCreate()
 
         initComposeSetting()
-
-        MMKV.defaultMMKV().encode("sts", emptySet())
-        println("value = ${MMKV.defaultMMKV().decodeStringSet("sts")}")
     }
 }

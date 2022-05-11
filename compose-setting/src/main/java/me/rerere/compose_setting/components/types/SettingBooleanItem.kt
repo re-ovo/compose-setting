@@ -1,10 +1,10 @@
 package me.rerere.compose_setting.components.types
 
+import androidx.compose.material3.Switch
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
 import me.rerere.compose_setting.components.SettingBaseItem
-import me.rerere.compose_setting.components.Switch
 
 @Composable
 fun SettingBooleanItem(
