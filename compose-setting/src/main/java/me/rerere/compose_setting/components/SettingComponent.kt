@@ -1,6 +1,7 @@
 package me.rerere.compose_setting.components
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Check
 import androidx.compose.material3.*
@@ -25,7 +26,8 @@ internal fun SettingBaseItem(
 ) {
     Surface(
         onClick = { onClick.invoke() },
-        color = Color.Unspecified
+        color = Color.Unspecified,
+        shape = RoundedCornerShape(16.dp)
     ) {
         Row(
             modifier = modifier
