@@ -9,7 +9,9 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.Popup
 
@@ -43,10 +45,14 @@ internal fun SettingBaseItem(
             Column(
                 modifier = Modifier.weight(1f)
             ) {
-                ProvideTextStyle(MaterialTheme.typography.titleLarge) {
+                ProvideTextStyle(
+                    MaterialTheme.typography.titleLarge.copy(
+                        fontSize = 20.sp
+                    )
+                ) {
                     title()
                 }
-                ProvideTextStyle(MaterialTheme.typography.bodyMedium) {
+                ProvideTextStyle(MaterialTheme.typography.bodySmall) {
                     text?.invoke()
                 }
             }

@@ -5,11 +5,11 @@ plugins {
 
 android {
     namespace 'me.rerere.compose_setting'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         minSdk 21
-        targetSdk 32
+        targetSdk 33
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -32,7 +32,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion compose_version
+        kotlinCompilerExtensionVersion compiler_version
     }
 }
 
@@ -40,7 +40,7 @@ dependencies {
     // Compose Library
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
-    implementation 'androidx.compose.material3:material3:1.0.0-alpha11'
+    implementation "androidx.compose.material3:material3:$md3_version"
 
     // MMKV
     implementation 'com.tencent:mmkv:1.2.13'
