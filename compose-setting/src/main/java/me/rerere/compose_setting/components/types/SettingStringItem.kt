@@ -2,64 +2,31 @@ package me.rerere.compose_setting.components.types
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Check
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import me.rerere.compose_setting.components.SettingBaseItem
 
-@Composable
-fun SettingStringPickerItem(
-    modifier: Modifier = Modifier,
-    state: MutableState<String>,
-    stateRange: Set<String>,
-    icon: (@Composable () -> Unit)? = null,
-    title: @Composable () -> Unit,
-    text: (@Composable () -> Unit)? = null
-) {
-    var dialogVisible by remember {
-        mutableStateOf(false)
-    }
-    SettingBaseItem(
-        modifier = modifier,
-        icon = icon,
-        title = title,
-        text = text,
-        action = {
-            DropdownMenu(
-                expanded = dialogVisible,
-                onDismissRequest = {
-                    dialogVisible = false
-                }
-            ) {
-                stateRange.forEach { item ->
-                    DropdownMenuItem(
-                        text = {
-                            Text(
-                                text = item
-                            )
-                        },
-                        onClick = {
-                            state.value = item
-                            dialogVisible = false
-                        },
-                        leadingIcon = {
-                            if (item == state.value) {
-                                Icon(Icons.Outlined.Check, null)
-                            }
-                        }
-                    )
-                }
-            }
-        },
-        onClick = {
-            dialogVisible = !dialogVisible
-        }
-    )
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
+/**
+ * A string input item, you can use it to input a string
+ *
+ * @param modifier Modifier
+ * @param state The state of the input
+ * @param icon The icon of the setting, will be displayed on the left of the title
+ * @param title The title of the setting
+ * @param validator The validator of the input
+ * @param invalidMessage The message of the invalid input
+ * @param confirmText The text of the confirm button
+ * @param dismissText The text of the dismiss button
+ */
 @Composable
 fun SettingStringInputDialogItem(
     modifier: Modifier = Modifier,

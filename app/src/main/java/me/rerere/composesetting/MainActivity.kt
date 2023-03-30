@@ -11,11 +11,13 @@ import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material.icons.outlined.Notifications
 import androidx.compose.material.icons.outlined.Phone
 import androidx.compose.material3.*
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import me.rerere.compose_setting.components.SettingItemCategory
 import me.rerere.compose_setting.components.types.SettingBooleanItem
+import me.rerere.compose_setting.components.types.SettingPickerItem
 import me.rerere.compose_setting.components.types.SettingStringInputDialogItem
-import me.rerere.compose_setting.components.types.SettingStringPickerItem
 import me.rerere.compose_setting.preference.rememberBooleanPreference
 import me.rerere.compose_setting.preference.rememberStringPreference
 import me.rerere.compose_setting.preference.rememberStringSetPreference
@@ -68,6 +70,28 @@ class MainActivity : ComponentActivity() {
                                     Text("自定义APP个性化设置")
                                 }
                             )
+
+                            val pickerState = remember {
+                                mutableStateOf("Xiaomi")
+                            }
+                            SettingPickerItem(
+                                state = pickerState,
+                                title = {
+                                    Text("Set Phone Brand")
+                                },
+                                text = {
+                                    Text("Select your phone brand : ${pickerState.value}")
+                                },
+                                icon = {
+                                    Icon(Icons.Outlined.Phone, null)
+                                },
+                                items = listOf(
+                                    "Xiaomi", "Google", "Oppo"
+                                ),
+                                itemLabel = {
+                                    Text(it)
+                                },
+                            )
                         }
                         SettingItemCategory(
                             title = { Text("Category Title") }
@@ -98,24 +122,6 @@ class MainActivity : ComponentActivity() {
                                 icon = {
                                     Icon(Icons.Outlined.Notifications, null)
                                 }
-                            )
-                            SettingStringPickerItem(
-                                state = rememberStringPreference(
-                                    key = "test3",
-                                    default = "Xiaomi"
-                                ),
-                                title = {
-                                    Text("Set Phone Brand")
-                                },
-                                text = {
-                                    Text("Select your phone brand")
-                                },
-                                icon = {
-                                    Icon(Icons.Outlined.Phone, null)
-                                },
-                                stateRange = setOf(
-                                    "Xiaomi", "Google", "Oppo"
-                                )
                             )
                             SettingStringInputDialogItem(
                                 state = rememberStringPreference(
